@@ -2,7 +2,9 @@ package com.rakesh.islingtonTask.controller;
 
 import com.rakesh.islingtonTask.dto.TeacherDTO;
 import com.rakesh.islingtonTask.service.interfaces.ITeacherService;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
@@ -27,8 +29,12 @@ public class TeacherController {
     @GetMapping("/work_hours")
     public ResponseEntity<TeacherDTO> getTeacherWorkHours(
             @RequestParam String teacherName,
-            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date startDate,
-            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate) {
+            @Valid @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date startDate,
+            @Valid @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate) throws BadRequestException {
+
+        if (startDate.after(endDate)) {
+            throw new BadRequestException("Start date cannot be after end date");
+        }
         return ResponseEntity.ok(teacherService.getTeacherWorkHours(teacherName, startDate, endDate));
     }
 }

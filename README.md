@@ -2,7 +2,7 @@
 
 ## Features
 
-- good data validation and response
+- Validation on routine creation for conflict routine (see bottom), and blank data
 - use of `@ControllerAdvice` for global validation message
 - use of liquibase for database migration and seeding data
 - Follows Rest API priciples
@@ -112,3 +112,10 @@ Request Body
 |:----------|:---------|:-----------------------|
 | `groupId` | `string` | **Required**. group id |
 
+## Notes
+
+There's validation for teacher's time slot when routine is created. For eg: if teacher has already routine
+for startTime: 10am to 12 pm , then when creating routine on same date, with startTime: 9:00:00 and endTime: 14:00:00
+on same date for same teacher, conflicted error is shown.
+
+![validation for conflicted routine](./assets/time_slot_validation.jpg)

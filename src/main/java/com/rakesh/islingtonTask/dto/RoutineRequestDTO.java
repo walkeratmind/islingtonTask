@@ -1,6 +1,7 @@
 package com.rakesh.islingtonTask.dto;
 
 import com.rakesh.islingtonTask.entity.Routine;
+import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -21,6 +22,7 @@ public class RoutineRequestDTO {
     private Time endTime;
 
     @NotNull(message = "Routine date is required")
+    @FutureOrPresent(message = "Routine Date cannot be from past")
     private Date routineDate;
 
     @NotBlank(message = "Subject is required")

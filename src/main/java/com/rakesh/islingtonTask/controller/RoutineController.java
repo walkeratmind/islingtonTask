@@ -27,13 +27,7 @@ public class RoutineController {
 
     @PostMapping
     public ResponseEntity<RoutineDTO> saveRoutine(@Valid @RequestBody RoutineRequestDTO routineRequest) {
-        try {
-            return ResponseEntity.status(HttpStatus.CREATED).body(routineService.saveRoutine(routineRequest));
-        } catch (ResourceNotFoundException e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
+        return ResponseEntity.status(HttpStatus.CREATED).body(routineService.saveRoutine(routineRequest));
     }
 
     @GetMapping

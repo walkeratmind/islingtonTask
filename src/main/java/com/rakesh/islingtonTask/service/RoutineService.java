@@ -3,6 +3,8 @@ package com.rakesh.islingtonTask.service;
 import com.rakesh.islingtonTask.dto.RoutineDTO;
 import com.rakesh.islingtonTask.dto.RoutineRequestDTO;
 import com.rakesh.islingtonTask.entity.Routine;
+import com.rakesh.islingtonTask.exception.BadParameterException;
+import com.rakesh.islingtonTask.exception.ConflictException;
 import com.rakesh.islingtonTask.exception.ResourceNotFoundException;
 import com.rakesh.islingtonTask.repository.RoutineRepository;
 import com.rakesh.islingtonTask.service.interfaces.IGroupService;
@@ -34,11 +36,33 @@ public class RoutineService implements IRoutineService {
 
     @Override
     public RoutineDTO saveRoutine(RoutineRequestDTO routineRequest) {
+        if (routineRequest.getStartTime().after(routineRequest.getEndTime())) {
+            throw new BadParameterException("Start time cannot be after end time");
+        }
+
         Routine routine = routineRequest.getRoutineEntity();
+        // check if teacher is assigned between provided startTime and endTime
+        validateIfTeacherHaveSameSlotAssigned(routineRequest);
         routine.setTeacher(this.teacherService.getTeacherById(routineRequest.getTeacherId()));
         routine.setGroup(this.groupService.getGroupById(routineRequest.getGroupId()));
         Routine savedRoutine = this.routineRepository.save(routine);
         return new RoutineDTO(savedRoutine);
+    }
+
+    public void validateIfTeacherHaveSameSlotAssigned(RoutineRequestDTO routineRequest) {
+        Routine routine = this.routineRepository
+                .getRoutineByTeacherIdAndTime(routineRequest.getTeacherId(),
+                        routineRequest.getRoutineDate(),
+                        routineRequest.getStartTime(),
+                        routineRequest.getEndTime());
+        if (routine != null) {
+            String exceptionMsg = String.format(
+                    "Teacher has already been assigned between startTime: %s and endTime: %s",
+                    routine.getStartTime(), routine.getEndTime()
+            );
+            throw new ConflictException(exceptionMsg);
+
+        }
     }
 
     @Override

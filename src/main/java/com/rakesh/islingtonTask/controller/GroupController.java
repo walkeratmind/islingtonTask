@@ -2,6 +2,7 @@ package com.rakesh.islingtonTask.controller;
 
 import com.rakesh.islingtonTask.dto.GroupDTO;
 import com.rakesh.islingtonTask.service.interfaces.IGroupService;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +24,7 @@ public class GroupController {
 
     @GetMapping("/workload")
     public ResponseEntity<GroupDTO> getGroupTotalHours(
-            @RequestParam Integer groupId) {
+            @Valid @RequestParam Integer groupId) {
         return ResponseEntity.ok(groupService.getGroupTotalWorkHours(groupId));
     }
 }
