@@ -11,5 +11,5 @@ CREATE TABLE routine
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_teacher FOREIGN KEY (teacher_id) REFERENCES teacher (teacher_id),
-    CONSTRAINT fk_group FOREIGN KEY (group_id) REFERENCES "group" (group_id)
+    CONSTRAINT fk_group FOREIGN KEY (group_id) REFERENCES "group_entity" (group_id)
 );

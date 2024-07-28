@@ -1,12 +1,10 @@
 package com.rakesh.islingtonTask.controller;
 
 import com.rakesh.islingtonTask.dto.TeacherDTO;
-import com.rakesh.islingtonTask.exception.ResourceNotFoundException;
 import com.rakesh.islingtonTask.service.interfaces.ITeacherService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,12 +29,6 @@ public class TeacherController {
             @RequestParam String teacherName,
             @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date startDate,
             @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate) {
-        try {
-            return ResponseEntity.ok(teacherService.getTeacherWorkHours(teacherName, startDate, endDate));
-        } catch (ResourceNotFoundException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
+        return ResponseEntity.ok(teacherService.getTeacherWorkHours(teacherName, startDate, endDate));
     }
 }

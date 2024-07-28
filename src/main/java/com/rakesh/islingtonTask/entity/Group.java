@@ -3,13 +3,15 @@ package com.rakesh.islingtonTask.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Set;
+
 @Getter
 @Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "group")
+@Table(name = "group_entity")
 public class Group extends Auditable {
 
     @Id
@@ -22,5 +24,8 @@ public class Group extends Auditable {
 
     @Column(name = "description")
     private String description;
+
+    @OneToMany(mappedBy = "group", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Routine> routines;
 }
 

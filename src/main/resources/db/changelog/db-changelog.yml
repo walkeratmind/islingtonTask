@@ -28,3 +28,5 @@ databaseChangeLog:
   - include:
       context: local, dev, qa
       file: /db/data/03-routineSeedData.yml
+  - include: # alter sequence start to count seed data as well
+      file: /db/changelog/db-changelog-sequence-update.yml

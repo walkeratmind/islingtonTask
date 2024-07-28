@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: rakesh
+      changes:
+        - sql:
+            sql: "ALTER SEQUENCE teacher_teacher_id_seq RESTART WITH 6;"
+
+  - changeSet:
+      id: 2
+      author: rakesh
+      changes:
+        - sql:
+            sql: "ALTER SEQUENCE routine_routine_id_seq RESTART WITH 11;"
+
+  - changeSet:
+      id: 3
+      author: rakesh
+      changes:
+        - sql:
+            sql: "ALTER SEQUENCE group_entity_group_id_seq RESTART WITH 7;"

@@ -11,6 +11,9 @@ import java.util.List;
 
 @Repository
 public interface RoutineRepository extends JpaRepository<Routine, Integer> {
+    @EntityGraph(attributePaths = {"teacher", "group"})
+    List<Routine> findAll();
+
     @Query("SELECT r FROM Routine r JOIN r.teacher t WHERE t.name = :teacherName AND r.routineDate BETWEEN :startDate AND :endDate")
     @EntityGraph(attributePaths = {"teacher"})
     List<Routine> findRoutineByTeacherAndDateRange(String teacherName, Date startDate, Date endDate);
