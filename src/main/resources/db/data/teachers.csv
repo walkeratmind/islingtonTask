@@ -1,6 +1,6 @@
-teacher_id,name,email,phone,start_date,created_date,updated_date
-1,Suman Shrestha,suman.shrestha@example.com,9800000001,2015-01-15,NOW(),NOW()
-2,Kamal Thapa,kamal.thapa@example.com,9800000002,2016-03-21,NOW(),NOW()
-3,Mina Rana,mina.rana@example.com,9800000003,2018-05-10,NOW(),NOW()
-4,Ramesh Karki,ramesh.karki@example.com,9800000004,2017-07-18,NOW(),NOW()
-5,Sunita Basnet,sunita.basnet@example.com,9800000005,2019-09-25,NOW(),NOW()
+teacher_id,name,email,phone,created_date,updated_date
+1,Suman Shrestha,suman.shrestha@example.com,9800000001,NOW(),NOW()
+2,Kamal Thapa,kamal.thapa@example.com,9800000002,NOW(),NOW()
+3,Mina Rana,mina.rana@example.com,9800000003,NOW(),NOW()
+4,Ramesh Karki,ramesh.karki@example.com,9800000004,NOW(),NOW()
+5,Sunita Basnet,sunita.basnet@example.com,9800000005,NOW(),NOW()

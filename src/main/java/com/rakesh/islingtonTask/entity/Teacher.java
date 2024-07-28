@@ -3,8 +3,6 @@ package com.rakesh.islingtonTask.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.sql.Date;
-
 @Getter
 @Setter
 @Builder
@@ -27,8 +25,5 @@ public class Teacher extends Auditable {
 
     @Column(name = "phone")
     private String phone;
-
-    @Column(name = "start_date")
-    private Date startDate;
 }
 

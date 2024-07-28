@@ -20,9 +20,6 @@ databaseChangeLog:
                   name: phone
                   type: STRING
               - column:
-                  name: start_date
-                  type: DATE
-              - column:
                   name: created_date
                   type: TIMESTAMP
               - column:
