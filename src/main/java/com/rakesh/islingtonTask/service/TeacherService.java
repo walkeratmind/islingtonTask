@@ -6,7 +6,6 @@ import com.rakesh.islingtonTask.entity.Routine;
 import com.rakesh.islingtonTask.entity.Teacher;
 import com.rakesh.islingtonTask.exception.ResourceNotFoundException;
 import com.rakesh.islingtonTask.repository.TeacherRepository;
-import com.rakesh.islingtonTask.service.interfaces.ITeacherRoutineService;
 import com.rakesh.islingtonTask.service.interfaces.ITeacherService;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
@@ -21,13 +20,9 @@ import java.util.List;
 public class TeacherService implements ITeacherService {
     private final TeacherRepository teacherRepository;
 
-    // using service as dependency instead of routineRepository for best practice
-    private final ITeacherRoutineService teacherRoutineService;
-
     @Autowired
-    public TeacherService(TeacherRepository teacherRepository, TeacherRoutineService teacherRoutineService) {
+    public TeacherService(TeacherRepository teacherRepository) {
         this.teacherRepository = teacherRepository;
-        this.teacherRoutineService = teacherRoutineService;
     }
 
     @Override

@@ -1,0 +1,176 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2024-07-28T16:10:39.244Z",
+  "__export_source": "insomnia.desktop.app:v2023.2.2",
+  "resources": [
+    {
+      "_id": "req_3c60dda038b042839317da5f00497534",
+      "parentId": "wrk_d0f63b6065b84bfe899d499ded2ab982",
+      "modified": 1722170213677,
+      "created": 1722170171053,
+      "url": "http://localhost:8080/api/group/workload?groupId=2",
+      "name": "get group total work load",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1722170171053,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "wrk_d0f63b6065b84bfe899d499ded2ab982",
+      "parentId": null,
+      "modified": 1722155290736,
+      "created": 1722155290736,
+      "name": "inslington-task",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_590f62dccd38435593e57aaff63aa294",
+      "parentId": "wrk_d0f63b6065b84bfe899d499ded2ab982",
+      "modified": 1722182826392,
+      "created": 1722165423211,
+      "url": "http://localhost:8080/api/routines/1",
+      "name": "get routines",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1722165423211,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_26ebe1cc4fa7430eb5e7d1b8ae1f9711",
+      "parentId": "wrk_d0f63b6065b84bfe899d499ded2ab982",
+      "modified": 1722163133182,
+      "created": 1722159222427,
+      "url": "http://localhost:8080/api/routines",
+      "name": "add routine",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"startTime\": \"10:00:00\",\n\t\"endTime\": \"12:00:00\",\n\t\"routineDate\": \"2024-07-20\",\n\t\"subject\": \"Neural Network\",\n\t\"groupId\": \"5\",\n\t\"teacherId\": \"5\"\n    \n}"
+      },
+      "parameters": [
+        {
+          "id": "pair_df1c228663d74d258faad5f6975a3414",
+          "name": "",
+          "value": "",
+          "description": ""
+        }
+      ],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1722159222427,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_039dbe3425cd4daab5315ada0222c594",
+      "parentId": "wrk_d0f63b6065b84bfe899d499ded2ab982",
+      "modified": 1722168891358,
+      "created": 1722155305130,
+      "url": "localhost:8080/api/teachers/work_hours",
+      "name": "get teacher work hours",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "id": "pair_db6ac260081349a4a96eb8263b6be08f",
+          "name": "teacherName",
+          "value": "Suman Shrestha",
+          "description": ""
+        },
+        {
+          "id": "pair_b216cdd056d24410bbab8bb69f68449c",
+          "name": "startDate",
+          "value": "2024-07-01",
+          "description": ""
+        },
+        {
+          "id": "pair_f5dd65fddd1e4d6a9f2d029f7b79b254",
+          "name": "endDate",
+          "value": "2024-07-30",
+          "description": ""
+        }
+      ],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1722155305130,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "env_32d4d2d09d656a39a830f2ecbca056cb2e833a84",
+      "parentId": "wrk_d0f63b6065b84bfe899d499ded2ab982",
+      "modified": 1722155290739,
+      "created": 1722155290739,
+      "name": "Base Environment",
+      "data": {},
+      "dataPropertyOrder": null,
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1722155290739,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_32d4d2d09d656a39a830f2ecbca056cb2e833a84",
+      "parentId": "wrk_d0f63b6065b84bfe899d499ded2ab982",
+      "modified": 1722155290740,
+      "created": 1722155290740,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "spc_d239d7d016e14d4ca3ebd1312d7abaff",
+      "parentId": "wrk_d0f63b6065b84bfe899d499ded2ab982",
+      "modified": 1722155290738,
+      "created": 1722155290738,
+      "fileName": "inslington-task",
+      "contents": "",
+      "contentType": "yaml",
+      "_type": "api_spec"
+    }
+  ]
+}
