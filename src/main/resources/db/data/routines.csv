@@ -1,0 +1,11 @@
+routine_id,start_time,end_time,routine_date,teacher_id,group_id,subject,duration,created_date,updated_date
+1,06:00:00,08:00:00,2024-07-28,1,1,Network Security,120,NOW(),NOW()
+2,08:30:00,10:30:00,2024-07-28,2,2,Database Management,120,NOW(),NOW()
+3,11:00:00,13:00:00,2024-07-28,3,3,Operating Systems,120,NOW(),NOW()
+4,14:00:00,16:00:00,2024-07-28,4,4,Business Management,120,NOW(),NOW()
+5,06:15:00,09:15:00,2024-07-29,5,5,Machine Learning,180,NOW(),NOW()
+6,10:00:00,12:00:00,2024-07-29,1,6,Marketing Principles,120,NOW(),NOW()
+7,12:30:00,15:30:00,2024-07-29,2,1,Cyber Threats,180,NOW(),NOW()
+8,07:00:00,09:00:00,2024-07-30,3,2,Software Engineering,120,NOW(),NOW()
+9,09:30:00,12:30:00,2024-07-30,4,3,Data Structures,180,NOW(),NOW()
+10,13:00:00,15:00:00,2024-07-30,5,4,Financial Accounting,120,NOW(),NOW()

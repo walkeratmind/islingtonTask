@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - includeAll:
+      context: dev
+      path: /db/enums
+      errorIfMissingOrEmpty: false
+  - includeAll:
+      context: dev
+      path: /db/tables
+      errorIfMissingOrEmpty: false
+  - includeAll:
+      context: dev
+      path: /db/sequences
+      errorIfMissingOrEmpty: false
+  - includeAll:
+      context: dev
+      path: /db/updates
+      errorIfMissingOrEmpty: false
+  - includeAll:
+      context: dev
+      path: /db/data/sql
+      errorIfMissingOrEmpty: false
+  - include:
+      context: local, dev, qa
+      file: /db/data/01-groupSeedData.yml
+  - include:
+      context: local, dev, qa
+      file: /db/data/02-teacherSeedData.yml
+  - include:
+      context: local, dev, qa
+      file: /db/data/03-routineSeedData.yml

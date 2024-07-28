@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: 'islingtonTask'
+
+  liquibase:
+    enabled: true
+    drop-first: false
+    change-log: classpath:db/db-changelog.yml
+
+  sql:
+    init:
+      platform: postgresql
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    url: jdbc:postgresql://${DATASOURCE_URL}
+  h2:
+    console:
+      enabled: false
+  jpa:
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    generate-ddl: true
+    open-in-view: false
+    hibernate:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyComponentPathImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        integration:
+          envers:
+            enabled: true
+
+logging:
+  level:
+    org.springframework: info
+    liquibase: info
+
+server:
+  port: 8080

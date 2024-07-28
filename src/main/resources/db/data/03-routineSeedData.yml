@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: 3
+      author: rakesh
+      changes:
+        - loadData:
+            file: classpath:db/data/routines.csv
+            tableName: routine
+            columns:
+              - column:
+                  name: routine_id
+                  type: NUMERIC
+              - column:
+                  name: start_time
+                  type: TIME
+              - column:
+                  name: end_time
+                  type: TIME
+              - column:
+                  name: routine_date
+                  type: DATE
+              - column:
+                  name: teacher_id
+                  type: NUMERIC
+              - column:
+                  name: group_id
+                  type: NUMERIC
+              - column:
+                  name: subject
+                  type: STRING
+              - column:
+                  name: duration
+                  type: NUMERIC
+              - column:
+                  name: created_date
+                  type: TIMESTAMP
+              - column:
+                  name: updated_date
+                  type: TIMESTAMP

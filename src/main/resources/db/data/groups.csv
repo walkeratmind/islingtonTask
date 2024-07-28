@@ -1,0 +1,7 @@
+group_id,name,description,created_date,updated_date
+1,Cyber Security,Group focused on Cyber Security studies,NOW(),NOW()
+2,IT,Group focused on Information Technology studies,NOW(),NOW()
+3,Computer Science,Group focused on Computer Science studies,NOW(),NOW()
+4,MBA,Group focused on Master of Business Administration studies,NOW(),NOW()
+5,AI,Group focused on Artificial Intelligence studies,NOW(),NOW()
+6,BBA,Group focused on Bachelor of Business Administration studies,NOW(),NOW()
