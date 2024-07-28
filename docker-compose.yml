@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:15
+    environment:
+      POSTGRES_USER: islington_task
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5433:5432"
+    restart: unless-stopped
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    networks:
+      - postgres
+
+  islington-task:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: islington-task
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: local
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/islington_task
+      SPRING_DATASOURCE_USERNAME: islington_task
+      SPRING_DATASOURCE_PASSWORD: admin
+      SPRING_APPLICATION_JSON: '{ "management": { "endpoints": { "enabled-by-default": true }, "endpoint": { "health": { "show-details": "always", "probes": { "enabled": true } } }, "health": { "livenessState": { "enabled": true }, "readinessState": { "enabled": true } } } }'
+    networks:
+      - islington-task
+      - postgres
+
+volumes:
+  postgres:
+
+networks:
+  islington-task:
+    driver: bridge
+  postgres:
+    driver: bridge

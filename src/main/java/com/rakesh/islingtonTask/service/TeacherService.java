@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 @Slf4j
 @Service
@@ -34,9 +34,9 @@ public class TeacherService implements ITeacherService {
     @Transactional
     public TeacherDTO getTeacherWorkHours(String teacherName, Date dateFrom, Date dateTo) {
         Teacher teacher = this.teacherRepository.getTeacherByName(teacherName)
-                .orElseThrow(() -> new ResourceNotFoundException("Teacher not found with that name"));
+                .orElseThrow(() -> new ResourceNotFoundException("Teacher not found with name: " + teacherName));
 
-        Set<Routine> routines = teacher.getRoutines();
+        List<Routine> routines = teacher.getRoutines();
         // filter routines and get totalWorkMinutes
         int totalWorkMinutes = routines.stream()
                 .filter(routine -> !routine.getRoutineDate().before(dateFrom) && !routine.getRoutineDate().after(dateTo))
@@ -46,11 +46,6 @@ public class TeacherService implements ITeacherService {
         teacherDto.setTotalWorkHours(totalWorkMinutes / TimeConstants.MINUTES_PER_HOUR);
 
         return teacherDto;
-
-//        TeacherDTO teacherDto = new TeacherDTO(teacher);
-//        teacherDto.setTotalWorkHours(this.teacherRoutineService.calculateTeacherTotalWorkHours(teacherName, dateFrom, dateTo));
-//
-//        return teacherDto;
     }
 
     @Override

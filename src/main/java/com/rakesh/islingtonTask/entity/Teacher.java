@@ -3,7 +3,7 @@ package com.rakesh.islingtonTask.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Set;
+import java.util.List;
 
 @Getter
 @Setter
@@ -29,6 +29,6 @@ public class Teacher extends Auditable {
     private String phone;
 
     @OneToMany(mappedBy = "teacher", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<Routine> routines;
+    private List<Routine> routines;
 }
 

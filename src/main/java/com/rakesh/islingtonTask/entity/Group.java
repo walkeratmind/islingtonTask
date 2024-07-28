@@ -3,7 +3,7 @@ package com.rakesh.islingtonTask.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Set;
+import java.util.List;
 
 @Getter
 @Setter
@@ -26,6 +26,6 @@ public class Group extends Auditable {
     private String description;
 
     @OneToMany(mappedBy = "group", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<Routine> routines;
+    private List<Routine> routines;
 }
 

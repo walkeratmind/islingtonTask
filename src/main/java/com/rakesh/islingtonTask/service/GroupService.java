@@ -4,6 +4,7 @@ import com.rakesh.islingtonTask.constants.TimeConstants;
 import com.rakesh.islingtonTask.dto.GroupDTO;
 import com.rakesh.islingtonTask.entity.Group;
 import com.rakesh.islingtonTask.entity.Routine;
+import com.rakesh.islingtonTask.exception.ResourceNotFoundException;
 import com.rakesh.islingtonTask.repository.GroupRepository;
 import com.rakesh.islingtonTask.service.interfaces.IGroupService;
 import jakarta.transaction.Transactional;
@@ -11,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Set;
+import java.util.List;
 
 @Slf4j
 @Service
@@ -32,9 +33,10 @@ public class GroupService implements IGroupService {
     @Override
     @Transactional
     public GroupDTO getGroupTotalWorkHours(int groupId) {
-        Group group = this.getGroupById(groupId);
+        Group group = this.groupRepository.getGroupById(groupId)
+                .orElseThrow(() -> new ResourceNotFoundException("Group not found with id: " + groupId));
 
-        Set<Routine> routines = group.getRoutines();
+        List<Routine> routines = group.getRoutines();
 
         int totalWorkingMinutes = routines.stream().mapToInt(Routine::getDuration).sum();
 
