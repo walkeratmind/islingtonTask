@@ -6,7 +6,6 @@ import lombok.*;
 
 import java.sql.Date;
 import java.sql.Time;
-import java.sql.Timestamp;
 import java.time.Duration;
 
 @Getter
@@ -46,14 +45,6 @@ public class Routine extends Auditable {
     @ManyToOne
     @JoinColumn(name = "group_id", nullable = false)
     private Group group;
-
-    @Column(name = "created_date", updatable = false)
-    @Builder.Default
-    private Timestamp createdDate = new Timestamp(System.currentTimeMillis());
-
-    @Column(name = "updated_date")
-    @Builder.Default
-    private Timestamp updatedDate = new Timestamp(System.currentTimeMillis());
 
     // Method to calculate duration
     public void calculateDuration() {
