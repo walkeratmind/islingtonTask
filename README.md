@@ -14,7 +14,7 @@
 1. Clone the project
 
 ```bash
-  git clone https://github.com/walkeratmind/islingtonTask
+  git clone https://github.com/walkeratmind/islingtonTask.git
 ```
 
 1. Create new postgresql database named `islington_task` with username and password.
